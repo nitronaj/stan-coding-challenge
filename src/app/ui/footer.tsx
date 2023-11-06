@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="h-60 bg-gray-900 text-gray-400">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 container pt-8">
         <div className="flex items-center justify-start  text-sm">
           <Link href="/login" className="pr-2 hover:underline">
