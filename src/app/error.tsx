@@ -9,7 +9,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   }, [error]);
 
   return (
-    <div className="error-container place-items-center bg-white ">
+    <div className="placeholder-container place-items-center bg-white ">
       <div className="mx-auto max-w-7xl px-6 pt-4 container">
         <h2>Opps, Something went wrong!</h2>
         <button

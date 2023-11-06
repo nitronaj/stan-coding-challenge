@@ -1,25 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { type Tile } from '../lib/types';
+import { type TTile } from '../lib/types';
 
-type TileProps = Tile;
+type TileProps = TTile;
 
-const tile: React.FC<TileProps> = ({ type, text, link }) => {
+const tile: React.FC<TileProps> = ({ type, name, link, backgroundImage }) => {
   return (
-    <Link href={link}>
-      <div className="flex flex-col">
+    <Link href={link ?? '#'}>
+      <div className="flex flex-col w-32">
         <div
           className="w-32 h-52 flex justify-center items-center bg-gray-800"
           style={{
-            backgroundImage: 'url(/assets/placeholder.png)',
+            backgroundImage: `url(${backgroundImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
           }}
         >
-          <span className="ml-2 text-white text-xl ">{type}</span>
+          {type && <span className="ml-2 text-white text-xl ">{type}</span>}
         </div>
-        <span className="text-sm py-2 text-gray-800">{text}</span>
+        <span className="text-sm py-2 truncate text-gray-800">{name}</span>
       </div>
     </Link>
   );
