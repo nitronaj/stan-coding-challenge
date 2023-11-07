@@ -22,5 +22,5 @@ export default async function ItemList({ programType, query }: SeriesListProps) 
     return <Tile key={title} name={title} background={{ url, size: 'contain' }} />;
   });
 
-  return <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4">{seriesList}</div>;
+  return <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4 w-full">{seriesList}</div>;
 }
