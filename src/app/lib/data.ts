@@ -32,31 +32,25 @@ export const getCacheItems = cache(async (programType: ProgramType) => {
   return items.get(programType) ?? [];
 });
 
-function sortItems(items: Program[], sortFiled: 'title', sortBy = 'asc') {
+function sortItems(items: Program[], sortField: 'title', sortBy = 'asc') {
   items.sort((itemA, itemB) => {
     if (sortBy === 'asc') {
-      return itemA[sortFiled].localeCompare(itemB[sortFiled]);
+      return itemA[sortField].localeCompare(itemB[sortField]);
     } else {
-      return itemB[sortFiled].localeCompare(itemA[sortFiled]);
+      return itemB[sortField].localeCompare(itemA[sortField]);
     }
   });
 }
 
-export async function getItems(
-  programType: ProgramType,
-  query: Query = {
-    releaseYear: 2010,
-    page: 1,
-    sort: 'title',
-    order: 'asc',
-  }
-) {
-  const { releaseYear, page, sort, order } = query;
+export async function getItems(programType: ProgramType, query: Query) {
+  const { releaseYear, page = 1, sort = 'title', order = 'asc' } = query;
 
-  const items = await getCacheItems(programType);
+  const allItems = await getCacheItems(programType);
 
-  const filterItems = items.filter((item) => item.releaseYear >= releaseYear).slice(0, page * ITEMS_PER_PAGE);
-  sortItems(filterItems, sort, order);
+  const filterItems = allItems.filter((item) => (releaseYear ? item.releaseYear >= releaseYear : true));
+  const items = filterItems.slice(0, page * ITEMS_PER_PAGE);
 
-  return filterItems;
+  sortItems(items, sort, order);
+
+  return items;
 }

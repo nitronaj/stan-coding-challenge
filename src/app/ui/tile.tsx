@@ -1,13 +1,20 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { type TTile } from '../lib/types';
 
 type TileProps = TTile;
 
-const tile: React.FC<TileProps> = ({ type, name, link, background: { url, size = 'auto' } }) => {
+const Tile: React.FC<TileProps> = ({ type, name, link, query, background: { url, size = 'auto' } }) => {
+  const pathname = usePathname();
+  const href = {
+    pathname: link,
+    query,
+  };
   return (
-    <Link href={link ?? '#'}>
+    <Link href={link ? href : `${pathname}//#`}>
       <div className="flex flex-col ">
         <div
           className="h-60 flex justify-center items-center bg-gray-800"
@@ -26,4 +33,4 @@ const tile: React.FC<TileProps> = ({ type, name, link, background: { url, size =
   );
 };
 
-export default tile;
+export default Tile;

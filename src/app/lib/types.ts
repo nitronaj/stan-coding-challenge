@@ -2,6 +2,7 @@ export type TTile = {
   type?: 'SERIES' | 'MOVIES';
   name: string;
   link?: string;
+  query?: Query;
   background: {
     url: string;
     size?: string;
@@ -31,7 +32,7 @@ export type Program = {
 export type Entries = Program[];
 
 export type Query = {
-  releaseYear: number;
+  releaseYear?: number;
   page: number;
   sort: 'title';
   order: 'asc' | 'desc';

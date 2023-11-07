@@ -8,7 +8,13 @@ export default function Home() {
   const tiles: TTile[] = [
     {
       type: 'SERIES',
-      link: '/series?releaseYear=2010&sort=title&page=1&order=asc',
+      link: '/series',
+      query: {
+        releaseYear: 2010,
+        sort: 'title',
+        page: 1,
+        order: 'asc',
+      },
       name: 'Popular Series',
       background: {
         url: '/assets/placeholder.png',
@@ -16,7 +22,13 @@ export default function Home() {
     },
     {
       type: 'MOVIES',
-      link: '/movies?releaseYear=2010&sort=title&page=1&order=asc',
+      link: '/movies',
+      query: {
+        releaseYear: 2010,
+        sort: 'title',
+        page: 1,
+        order: 'asc',
+      },
       name: 'Popular Movies',
       background: {
         url: '/assets/placeholder.png',
