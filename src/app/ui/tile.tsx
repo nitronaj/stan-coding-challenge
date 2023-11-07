@@ -23,6 +23,7 @@ const Tile: React.FC<TileProps> = ({ type, name, link, query, background: { url,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundSize: size,
+            backgroundColor: 'transparent',
           }}
         >
           {type && <span className="ml-2 text-white text-xl ">{type}</span>}
