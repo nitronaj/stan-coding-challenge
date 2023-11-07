@@ -8,9 +8,9 @@ type TileProps = TTile;
 const tile: React.FC<TileProps> = ({ type, name, link, backgroundImage }) => {
   return (
     <Link href={link ?? '#'}>
-      <div className="flex flex-col w-32">
+      <div className="flex flex-col ">
         <div
-          className="w-32 h-52 flex justify-center items-center bg-gray-800"
+          className="h-60 flex justify-center items-center bg-gray-800"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundRepeat: 'no-repeat',

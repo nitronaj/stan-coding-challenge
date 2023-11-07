@@ -1,5 +1,5 @@
 import { type TTile } from './lib/types';
-import TileComponent from './ui/tile';
+import Tile from './ui/tile';
 
 export default function Home() {
   // 	Display the first 21 entries
@@ -20,9 +20,9 @@ export default function Home() {
     },
   ];
   return (
-    <div className="mt-6 flex grow gap-4 mx-auto max-w-7xl px-6 container">
+    <div className="grid grid-cols-7 grow gap-4 mt-6 mx-auto max-w-7xl px-6 container">
       {tiles.map((tile) => (
-        <TileComponent key={tile.type} {...tile} />
+        <Tile key={tile.type} {...tile} />
       ))}
     </div>
   );
