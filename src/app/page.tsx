@@ -10,13 +10,17 @@ export default function Home() {
       type: 'SERIES',
       link: '/series?releaseYear=2010&sort=title&page=1&order=asc',
       name: 'Popular Series',
-      backgroundImage: '/assets/placeholder.png',
+      background: {
+        url: '/assets/placeholder.png',
+      },
     },
     {
       type: 'MOVIES',
       link: '/movies?releaseYear=2010&sort=title&page=1&order=asc',
       name: 'Popular Movies',
-      backgroundImage: '/assets/placeholder.png',
+      background: {
+        url: '/assets/placeholder.png',
+      },
     },
   ];
   return (

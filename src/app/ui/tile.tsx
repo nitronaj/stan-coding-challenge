@@ -5,16 +5,17 @@ import { type TTile } from '../lib/types';
 
 type TileProps = TTile;
 
-const tile: React.FC<TileProps> = ({ type, name, link, backgroundImage }) => {
+const tile: React.FC<TileProps> = ({ type, name, link, background: { url, size = 'auto' } }) => {
   return (
     <Link href={link ?? '#'}>
       <div className="flex flex-col ">
         <div
           className="h-60 flex justify-center items-center bg-gray-800"
           style={{
-            backgroundImage: `url(${backgroundImage})`,
+            backgroundImage: `url(${url})`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            backgroundSize: size,
           }}
         >
           {type && <span className="ml-2 text-white text-xl ">{type}</span>}

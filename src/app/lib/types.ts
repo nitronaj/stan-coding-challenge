@@ -2,7 +2,10 @@ export type TTile = {
   type?: 'SERIES' | 'MOVIES';
   name: string;
   link?: string;
-  backgroundImage?: string;
+  background: {
+    url: string;
+    size?: string;
+  };
 };
 
 export type PosterArt = {
